@@ -1,0 +1,89 @@
+<ion-view title="Deudas">
+
+    <ion-nav-buttons side="right">
+	    <button class="button button-icon" ng-click="newDebt()">
+	      <i class="icon ion-compose"></i>
+	    </button>
+	</ion-nav-buttons>
+
+  <ion-content class="has-header">
+
+	<button class="button button-block button-assertive">
+	  le debo a 
+	</button>
+	<ion-list>
+	  <ion-item ng-repeat="debt in iowe">
+	     {{debt.name}}, {{debt.val}}
+	  </ion-item>
+	  <ion-item ng-if="iowe.length < 1">
+	     No debo nada
+	  </ion-item>
+	</ion-list>
+
+	<button class="button button-block button-positive">
+	  Me deben
+	</button>
+	<ion-list>
+	  <ion-item ng-repeat="debt in owesme">
+	     {{debt.name}}, {{debt.val}}
+	  </ion-item>
+	  <ion-item ng-if="owesme.length < 1">
+	     No me deben nada
+	  </ion-item>
+	</ion-list>
+
+  </ion-content>
+
+  <script id="newDebt.html" type="text/ng-template">
+
+	  <div class="modal">
+
+	    <!-- Modal header bar -->
+	    <ion-header-bar class="bar-positive">
+	      <h1 class="title">Registrar Deuda</h1>
+	      <button class="button button-clear button-light" ng-click="closeNewDebt()">
+		    <i class="icon ion-android-close "></i>
+		  </button>
+	    </ion-header-bar>
+
+	    <!-- Modal content area -->
+	    <ion-content class="padding">
+	
+		<form ng-submit="calcPizza(derps)">
+
+
+	    <div class="list">
+		
+		      <label class="item item-input">
+				  <textarea placeholder="Descripcion, ej: Pizza, Parrilla, " ng-model="derps.eaters"></textarea>    
+		      </label>
+			  <br>
+			  <h4>Cuanta Hambre tienen?</h4>
+			  <label class="item item-radio">
+			    <input type="radio" name="group" checked="checked" value="0"  ng-model="derps.hunger">
+				    <div class="item-content">
+				      Normal
+				    </div>
+				    <i class="radio-icon ion-checkmark"></i>
+				</label>
+
+				<label class="item item-radio">
+				    <input type="radio" name="group"  value="1"  ng-model="derps.hunger">
+				    <div class="item-content">
+				      Burda
+				    </div>
+				    <i class="radio-icon ion-checkmark"></i>
+				</label>	  
+		    <br>
+		    </div>
+		    <button type="submit" class="button button-block button-positive">Calcular</button>
+		</form>
+
+
+	    </ion-content>
+
+	  </div>
+
+	</script>
+
+</ion-view>

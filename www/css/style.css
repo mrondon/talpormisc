@@ -1,0 +1,7 @@
+/* Empty. Add your own CSS if you like */
+.bkgd-pizza{
+	background: url(../img/pizza.png);
+	background-size: contain;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;	
+}

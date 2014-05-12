@@ -1,0 +1,73 @@
+<ion-view title="Pizza Calc">
+  <ion-content class="has-header padding">
+
+ 	<form ng-submit="calcPizza(derps)">
+
+
+	    <div class="list">
+		
+		  <h4>Cuantos son?</h4>
+
+	      <label class="item item-input">
+			  <input type="number" min="2" placeholder="1, 2, 3...?" ng-model="derps.eaters">    
+	      </label>
+		  <br>
+		  <h4>Cuanta Hambre tienen?</h4>
+		  <label class="item item-radio">
+		    <input type="radio" name="group" checked="checked" value="0"  ng-model="derps.hunger">
+			    <div class="item-content">
+			      Normal
+			    </div>
+			    <i class="radio-icon ion-checkmark"></i>
+			</label>
+
+			<label class="item item-radio">
+			    <input type="radio" name="group"  value="1"  ng-model="derps.hunger">
+			    <div class="item-content">
+			      Burda
+			    </div>
+			    <i class="radio-icon ion-checkmark"></i>
+			</label>	  
+	    <br>
+	    </div>
+	    <button type="submit" class="button button-block button-positive">Calcular</button>
+	</form>
+
+  </ion-content>
+
+	<script id="calcPizza.html" type="text/ng-template">
+
+	  <div class="modal">
+
+	    <!-- Modal header bar -->
+	    <ion-header-bar class="bar-positive">
+	      <h1 class="title">Pizza Calc</h1>
+	      <button class="button button-clear button-light" ng-click="closeCalcPizza()">
+		    <i class="icon ion-android-close "></i>
+		  </button>
+	    </ion-header-bar>
+
+	    <!-- Modal content area -->
+	    <ion-content class="bkgd-pizza padding">
+		    <h3>
+		    Pide
+		    <ul>
+			    <li ng-if="grandes > 0">
+		    		<i class="icon ion-pizza"></i> {{ grandes }} pizzas grandes
+				</li> 
+			    <li ng-if="medianas > 0">
+		    		<i class="icon ion-pizza"></i> {{ medianas }} pizzas medianas
+				</li>
+				<li ng-if="extras > 0">
+		    		<i class="icon ion-pizza"></i> +{{ extras }} pizzas medianas extra
+				</li>
+			</ul>
+			</h3>
+
+	    </ion-content>
+
+	  </div>
+
+	</script>
+
+</ion-view>
